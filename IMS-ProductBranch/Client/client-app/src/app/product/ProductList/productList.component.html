@@ -1,0 +1,102 @@
+<div class="panel"style="margin-top:10px">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="float: left;">
+      <i class="fa fa-tasks"></i>
+      Product List
+    </h3>
+    <div *ngIf="TagForAdvance=='productAdvanceSearchSBilling'">
+
+      <button class="btn btn-xs btn-info float-right  mb-1  ml-1 btn-mat" (click)="closeProductList()">Close</button>
+      <button (click)=" ClickopenProductModel()" class="btn btn-xs btn-info float-right  mb-1 ml-1 btn-mat">New Product</button>
+    </div>
+
+    <div *ngIf="TagForAdvance !='productAdvanceSearchSBilling'">
+
+      <button   [routerLink]="['/Product']" class="btn btn-xs btn-info float-right  mb-1 ml-1 btn-mat">New Product</button>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table mat-table [dataSource]="products" matSort class="mat-elevation-z8  table-sm table-hover">
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-column"></tr>
+      <div *ngIf="TagForAdvance !='productAdvanceSearchSBilling'">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"  [ngClass]="{'highlight': row }" class="table-row"> </tr>
+
+      </div>
+
+      <div *ngIf="TagForAdvance=='productAdvanceSearchSBilling'">
+        <tr mat-row  *matRowDef="let row; columns: displayedColumns;let i = index"  [ngClass]="{'highlight': row }"
+        class="table-row" (dblclick)="doubleClick(row,i)">
+      </tr>
+      </div>
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sno </th>
+        <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="productDesc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.productDesc}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="uniqueName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Unique Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.uniqueName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="prGroupCode">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Group </th>
+        <td mat-cell *matCellDef="let element"> {{element.prGroupCode}} </td>
+      </ng-container>
+      <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit </th>
+        <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="buy_Rate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Buy Rate </th>
+        <td mat-cell *matCellDef="let element"> {{element.buy_Rate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sales_Rate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sales Rate </th>
+        <td mat-cell *matCellDef="let element"> {{element.sales_Rate}} </td>
+      </ng-container>
+      <div *ngIf="TagForAdvance !='productAdvanceSearchSBilling'">
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" [routerLink]="['/edit-product/', element.productCode]">
+            <button mat-icon-button color="accent">
+              <mat-icon class="mat-18">system_update</mat-icon>
+            </button>
+            <!-- <button  mat-icon-button color="warn" (click)="deleteProduct(element)">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button> -->
+          </td>
+        </ng-container>
+  
+      </div>
+      <div *ngIf="TagForAdvance !='productAdvanceSearchSBilling'">
+  
+        <ng-container matColumnDef="actionn">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" (click)="deleteProduct(element)">
+  
+            <button mat-icon-button color="warn">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      </div>
+    </table>
+  </div>
+</div>
+
+
+
+  
+  <p *ngIf="products.data.length==0"><em>Empty Data</em></p>
+  <mat-paginator [pageSizeOptions]="[10, 20,30,40,50 ]" showFirstLastButtons></mat-paginator>
+
+
+<!-- </mat-expansion-panel>
+</mat-accordion> -->

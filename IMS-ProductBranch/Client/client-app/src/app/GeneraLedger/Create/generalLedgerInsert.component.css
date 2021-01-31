@@ -1,0 +1,11 @@
+
+@media(max-width:577px){
+    .ry-formGroup{
+        margin-bottom: 0px;
+    }
+
+}
+
+.ry-checkbox{
+    margin-top:10px;
+}

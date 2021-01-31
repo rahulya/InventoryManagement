@@ -1,0 +1,15 @@
+editable > tbody > tr > td {
+    border-right: 1px solid #ddd;
+    border-left: none;
+    padding: 3px;
+}
+.table td, .table th {
+    padding-left: 1px;
+    padding-right: 1px;
+   
+
+}
+.form-group {
+  margin: 0px 0px 8px 0px;
+}
+

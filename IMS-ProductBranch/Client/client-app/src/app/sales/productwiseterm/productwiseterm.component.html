@@ -1,0 +1,60 @@
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <i  class="fa fa-tasks"></i>
+       Sales {{actionType}}
+        </h3>
+    </div>
+    <div class="panel-body">
+    </div>
+</div>
+<table class="table table-bordered table-responsive table-sm">
+    <thead style="background-color:#d5dbdb;">
+        <tr>
+            <th style="width:10px;">Sn</th>
+            <th style="width:150px;">Term Description</th>
+            <th style="width:30px;">Basis</th>
+            <th style="width:30px;">Sign</th>
+            <th style="width:80px;">Rate</th>
+            <th style="width:80px;">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td >#</td>
+            <td  colspan="4">Basic Amount</td>         
+            <td><input type="text"class="form-control form-control-sm"[value]="productBasicAmt" ></td>
+        </tr>
+    <tr *ngFor="let term of productWiseTermList ;let i=index">
+        <td>{{i+1}}</td>
+        <td hidden>{{term.sT_Code}}</td>
+        <td>{{term.sT_Desc}}</td>
+        <td>{{term.sT_Basis}}</td>
+        <td>{{term.sT_Sign}}</td>
+        <td><input type="text"class="form-control form-control-sm"[value]="term.sT_Rate"[(ngModel)]="term.sT_Rate" (keyup)="TermRate(term.sT_Rate,term)"></td>
+        <td><input type="text"class="form-control form-control-sm"[(ngModel)]="term.termValue" ></td>
+
+
+    </tr>
+    <tr>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+       
+        <td  colspan="2">Total Amount</td>         
+        <td><input type="text"class="form-control form-control-sm" [(ngModel)]="finalTermAmt"></td>
+    </tr>
+           
+          
+           
+     
+    </tbody>
+</table>
+<hr/>
+<div class="text-center">      
+   
+    <button type="text"(click)="save()" class="btn btn-sm btn-primary"style="margin:8px">Save</button> 
+    <button (click)="onClose()" type="button"class="btn btn-sm btn-primary">Cancel</button>
+</div>
+
+    

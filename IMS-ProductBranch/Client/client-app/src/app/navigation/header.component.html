@@ -1,0 +1,272 @@
+<!-- <mat-toolbar style="background-color: darkcyan;">My App
+    <a [routerLink]="['/']" class="nav-link">Home</a>
+    <a [routerLink]="['Customer']" class="nav-link">Customer</a>
+  
+</mat-toolbar> -->
+<div class="wrapper">
+
+    <!-- Sidebar  -->
+
+        <nav id="sidebar">
+           
+         
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Accounting Software</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>User Name</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Master</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Ledger</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Customer</a>
+                        </li>
+                        <li>
+                            <a href="#">Vendor</a>
+                        </li>
+                        <li>
+                            <a href="#">Billing Terms</a>
+                        </li>
+                        <li>
+                            <a href="#">Product</a>
+                        </li>
+                        <li>
+                            <a href="#">Agent</a>
+                        </li>
+                        <li>
+                            <a href="#">Area</a>
+                        </li>
+                        <li>
+                            <a href="#">Branch</a>
+                        </li>
+                        <li>
+                            <a href="#">Godown</a>
+                        </li>
+                        <li>
+                            <a href="#">Opening Balance</a>
+                        </li>
+                        <li>
+                            <a href="#">Currency</a>
+                        </li>
+                        <li>
+                            <a href="#">Remark Master</a>
+                        </li>
+                        <li>
+                            <a href="#">Document Class</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                    
+                     
+
+            
+
+                      <a href="#">About</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#">User Name</a>
+                    <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">User Menu</a>
+                    <ul class="collapse list-unstyled" id="userSubmenu">
+                        <li>
+                            <a href="#">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Setting</a>
+                        </li>
+                        <li>
+                            <a href="#">Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </nav>
+
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <!--For Logo-->
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <div class="container">
+
+                <button type="button" id="sidebarCollapse" class="btn btn togglebtn">
+                    <i class="fa fa-align-left"></i>
+                    <span></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="col-sm-11">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a [routerLink]="['/']"  class="nav-link" href="#"><i class="fa fa-home"></i>
+                                Dashboard
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                               
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                  
+                                    Master<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="nav-item">
+                                        <a [routerLink]="['LedgerList']"  class="nav-link" href="#">Ledger</a>
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+
+                                    <li class="nav-item">
+                                        <a [routerLink]="['Customer']"  class="nav-link" href="#">Customer</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Vendor</a>
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Billing Terms</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a [routerLink]="['ProductList']" class="nav-link" href="#">Product</a>
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Agent</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Area</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Branch</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Godown</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Ledger Balance</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Entry<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Cash and Bank</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Journal Voucher</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Debit Note</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Credit Note</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Purchase</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a [routerLink]="['SalesSave']" class="nav-link" href="#">Sales</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Good Transfer</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">PDC</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Setting</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Company</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-1" >
+                        <ul class="navbar-nav ml-auto ">
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="20" height="20" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Setting</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Log Out</a>
+                                </li>
+                               
+                            </ul>
+                          </li>   
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="margin-top:70px">
+            <div class="col-sm-10" >
+                <router-outlet></router-outlet>  
+            </div>
+            <div class="col-sm-2">
+            <!-- right nav -->
+            </div>
+                
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>

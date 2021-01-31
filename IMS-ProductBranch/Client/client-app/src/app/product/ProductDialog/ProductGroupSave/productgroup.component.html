@@ -1,0 +1,55 @@
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <i  class="fa fa-tasks"></i>
+        Product Group {{actionType}}
+        </h3>
+    </div>
+    <div class="panel-body">
+    </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+<div class="card" style="background:#f0f0f0">
+    <div>
+        <div class="card-body">
+        <div class="form-group row">
+            <label class="col-sm-4 form-label">Description
+                <span style="color:red;">*</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="form-control form-control-sm" formControlName="prGrpDesc">
+                <div *ngIf="f.prGrpDesc.touched && f.prGrpDesc.invalid" class="alert alert-danger mat-alertValidation">
+                    <div *ngIf="f.prGrpDesc.errors.required">Name is required.</div>
+                    <div *ngIf="f.prGrpDesc.errors.maxlength">Name should be 50 character.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            
+            <label class="col-sm-4 form-label">Unique Name
+                <span style="color:red;">*</span>
+            </label>
+            <div class="col-sm-8">
+                <input  class="form-control form-control-sm" formControlName="prGrpShortName">
+                <div *ngIf="f.prGrpShortName.touched && f.prGrpShortName.invalid" class="alert alert-danger mat-alertValidation">
+                    <div *ngIf="f.prGrpShortName.errors.required">Name is required.</div>
+                    <div *ngIf="f.prGrpShortName.errors.maxlength">Name should be 8 character.</div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="text-center">      
+           
+            <button type="submit" class="btn btn-sm btn-primary"style="margin:8px">Save</button> 
+            <button (click)="onClose()" type="button"class="btn btn-sm btn-primary">Cancel</button>
+        </div>
+    </div>
+   
+</div>  
+</div>
+</form>
+
+
+
+   

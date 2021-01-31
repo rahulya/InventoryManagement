@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+ 
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+
+  .table-row {
+    height: 32px ;
+  }
+  .table-column{
+    height: 37px ;
+  }
+  .btn-mat{
+     
+      margin: 0px;
+      padding: 5px;
+      font-size: 13px;
+  }
+
+  .my-class .mat-dialog-container{
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    background: lightcyan;
+    color: #039be5;
+  }
+
+  
+  
+  

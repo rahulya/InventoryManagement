@@ -1,0 +1,203 @@
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <i class="fa fa-tasks"></i>
+            {{actionType}} Product
+        </h3>
+    </div>
+    <div class="panel-body">
+        <!-- <button (click)="notify('success', 'Bravo! Well done.')">Success</button> -->
+    </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="saveProduct()">
+    <div class="card" style="background:#f0f0f0">
+        <div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Description
+                        <span style="color:red;">*</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control form-control-sm" formControlName="productDesc" #message
+                            [ngClass]="{ 'is-invalid': submitted && f.productDesc.errors }">
+                        <div *ngIf="submitted && f.productDesc.errors" class="invalid-feedback">
+                            <div *ngIf="f.productDesc.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+
+
+                    <label class="col-sm-2 form-label">Unique Name
+                        <span style="color:red;">*</span>
+                    </label>
+                    <div class="col-sm-2">
+                        <input class="form-control form-control-sm" formControlName="uniqueName" #uniqueName
+                            [ngClass]="{ 'is-invalid': submitted && f.uniqueName.errors }">
+                        <div *ngIf="submitted && f.uniqueName.errors" class="invalid-feedback">
+                            <div *ngIf="f.uniqueName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+
+                    <!-- Left column -->
+                    <label class="col-sm-2 col-form-label">Additional Desc</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control form-control-sm" cols="20" rows="2" maxlength="256"
+                            formControlName="addProductDescription"></textarea>
+                    </div>
+
+                </div>
+                <hr />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Product Group</label>
+
+                    <div class="col-sm-4" style="display:inline-flex">
+                        <input id="typeahead-basic" type="text" formControlName="prGroupCode" class="form-control form-control-sm" 
+                        [ngbTypeahead]="AutocompleteProGrp"[(ngModel)]="productGrpModel" [resultFormatter]="formatter"(selectItem)="selectproductGrp($event)"
+                        [ngClass]="{ 'is-invalid': submitted && f.prGroupCode.errors }"placeholder="Type product group name">
+                       
+
+                        <button class="btn btn-xs btn-primary" type="button" (click)="openPrGroupModel()"
+                            style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                        </button> 
+
+                       
+                    </div>
+
+                    <label class="col-sm-2 form-label">Product Sub Group</label>
+                    <div class="col-sm-4" style="display:inline-flex">
+                      
+                        <select formControlName="prtSubGrpCode" [(ngModel)]="selectedProSubGrpValue" class="form-control form-control-sm"
+                            (change)="changePrSubGroup($event.target.value)" #proSubGrp>
+                            <option value="0">Choose one</option>
+                            <option *ngFor="let productSub of ProductSubGroups" [selected]="productSub==this.selectedProSubGrpValue">{{productSub.prSubGrpDesc}}</option>
+                            
+                        </select>
+                        <button class="btn btn-xs btn-primary" type="button" (click)="openPrSubGroupModel()"
+                            style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- <div class="form-group row">
+                    <label class="col-sm-2 form-label">Group One</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control form-control-sm" formControlName="prGroupCode1">
+                    </div>
+
+
+                    <label class="col-sm-2 form-label">Group Two</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control form-control-sm" formControlName="prGroupCode2">
+                    </div>
+
+                </div> -->
+                <hr />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Product Type</label>
+                    <div class="col-sm-4">
+                        <!-- <input class="form-control form-control-sm" formControlName="productType"> -->
+                        <select formControlName="productType" [(ngModel)]="selectedProductTypee" class="form-control form-control-sm"
+                            (change)="changeProductType($event.target.value)" >
+                            <!-- <option value="0">Choose one</option> -->
+                            <option *ngFor="let type of productType">{{type.name}}</option>
+                            
+                        </select>
+                    </div>
+
+
+                    <label class="col-sm-2 form-label">Valuation Type</label>
+                    <div class="col-sm-4">
+                        <!-- <input class="form-control form-control-sm" formControlName="valuationType"> -->
+
+                        <select formControlName="valuationType"[(ngModel)]="selectedValuationTypee" class="form-control form-control-sm"
+                        (change)="changevaluationType($event.target.value)" >
+                        <!-- <option value="0">Choose one</option> -->
+                        <option *ngFor="let type of valuationType">{{type.name}}</option>
+                        
+                    </select>
+                    </div>
+
+                </div>
+                <hr />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Unit</label>
+                    <div class="col-sm-1">
+                        <input class="form-control form-control-sm" formControlName="unit">
+                    </div>
+                    <label class="col-sm-1 form-label">Alt Unit</label>
+                    <div class="col-sm-2">
+                        <input class="form-control form-control-sm" formControlName="altUnit">
+                    </div>
+                    <label class="col-sm-2 form-label">Buy price</label>
+                    <div class="col-sm-1">
+                        <input type="number" class="form-control form-control-sm" formControlName="buy_Rate">
+                    </div>
+                    <label class="col-sm-1 form-label">Sale price</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="sales_Rate">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Factor</label>
+                    <div class="col-sm-1">
+                        <input type="number" class="form-control form-control-sm" formControlName="factor">
+                    </div>
+                    <label class="col-sm-1 form-label">Con Ratio</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="conv_Ratio">
+                    </div>
+                    <label class="col-sm-2 form-label">Trade price</label>
+                    <div class="col-sm-1">
+                        <input type="number" class="form-control form-control-sm" formControlName="trade_Price">
+                    </div>
+                    <label class="col-sm-1 form-label">MRP</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="product_MRP">
+                    </div>
+
+                </div>
+                <hr />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Min Stock Qty</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="min_Stock">
+                    </div>
+                    <label class="col-sm-2 form-label">Reorder Level</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="reorder_Level">
+                    </div>
+
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-label">Max Stock Qty</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="max_Stock">
+                    </div>
+                    <label class="col-sm-2 form-label">Reorder Qty</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control form-control-sm" formControlName="reorder_Qty">
+                    </div>
+                    <label class="col-sm-2 form-label">Warranty</label>
+                    <div class="col-sm-2">
+                        <input type="date" class="form-control form-control-sm" formControlName="warranty_Period">
+                    </div>
+
+                </div>
+                <hr />
+                <div class="text-center">
+                    <button type="submit" class="btn btn-sm btn-primary" style="margin:8px">{{TabAction}}</button>
+                    <button class="btn btn-sm btn-primary" type="reset" (click)="onReset()">Cancel</button>
+                    <button  *ngIf="TagForAdvance=='productAdvanceSearchSBilling'" class="btn btn-sm btn-primary ml-2" type="reset" (click)="OnCloseProductModel()">Close Modal</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

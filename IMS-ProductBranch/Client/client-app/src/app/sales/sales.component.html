@@ -1,0 +1,229 @@
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <i class="fa fa-tasks"></i>
+            {{actionType}} Sales Invoice
+        </h3>
+    </div>
+    <div class="panel-body">
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="saveProduct()">
+    <div class="card" style="background:#f0f0f0">
+        <div>
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <div class="form-group row">
+
+
+                        <label class="col-sm-2 form-label">Invoice No
+                            <span style="color:red;">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            <input class="form-control form-control-sm">
+
+                        </div>
+
+
+                        <label class="col-sm-1 form-label">Date
+                            <span style="color:red;">*</span>
+                        </label>
+                        <div class="col-sm-5" style="display:inline-flex">
+
+
+                            <input type="date" class="form-control form-control-sm">
+                            <input type="date" class="form-control form-control-sm">
+
+                        </div>
+
+                    </div>
+
+                 
+                    <div class="form-group row">
+                        <label class="col-sm-2 form-label">Challan No</label>
+
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <input id="typeahead-basic" type="text" class="form-control form-control-sm">
+
+
+                            <button class="btn btn-xs btn-primary" type="button" (click)="openChallanPurchase()"
+                                style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+
+
+                        </div>
+
+                        <label class="col-sm-1 form-label">Order No</label>
+                        <div class="col-sm-5" style="display:inline-flex">
+
+                            <input id="typeahead-basic" type="text" class="form-control form-control-sm">
+                            <button class="btn btn-xs btn-primary" type="button" (click)="openOrderPurchase()"
+                                style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 form-label">Customer
+                            <span style="color:red;">*</span>
+                        </label>
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <input class="form-control form-control-sm">
+                            <button class="btn btn-xs btn-primary" type="button" (click)="openChallanPurchase()"
+                                style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <label class="col-sm-1 form-label">Due day
+
+                        </label>
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <div class="col-sm-6" style="margin-left:-15px">
+                                <input type="text" class="form-control form-control-sm ">
+                            </div>
+                            <div class="col-sm-6" style="display:inline-flex">
+                                <input type="date" class="form-control form-control-sm" style="margin-left:-20px">
+                                <input type="date" class="form-control form-control-sm">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 form-label">Agent
+
+                        </label>
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <input class="form-control form-control-sm">
+                            <button class="btn btn-xs btn-primary" type="button" (click)="openChallanPurchase()"
+                                style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <label for="Currency" class="col-sm-1 form-label">Currency
+
+                        </label>
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <div class="col-sm-10" style="margin-left:-15px">
+                                <select class="form-control form-control-sm" id="Currency">
+                                    <option value="0">Select One</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-7" style="display:inline-flex">
+                                <input type="text" class="form-control form-control-sm" style="margin-left:-20px">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 form-label">Sub Ledger</label>
+
+                        <div class="col-sm-4" style="display:inline-flex">
+                            <input class="form-control form-control-sm">
+
+                            <button class="btn btn-xs btn-primary" type="button" (click)="openChallanPurchase()"
+                                style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+
+                        </div>
+                        <label for="class" class="col-sm-1 form-label form-label">Class</label>
+                        <div class="col-sm-5" style="display:inline-flex">
+                            <select class="form-control form-control-sm" id="accountSubGroup">
+                                <option value="0">select One</option>
+                            </select>
+                            <select class="form-control form-control-sm" id="accountSubGroup">
+                                <option value="0">select One</option>
+                            </select>
+                            <select class="form-control form-control-sm" id="accountSubGroup">
+                                <option value="0">select One</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="col-sm-12">
+                    <div class="col-sm-12" style="border: 1px solid silver;padding: 0px 0px 0px 0px;" formArrayName="itemRows">
+                    <table class="table table-bordered table-responsive table-sm"id="tableDetailSales" >
+                        <thead style="background-color: silver;">
+                            <tr>
+                                <th style="width: 30px;">Sn</th>
+                                <!-- <th style="width: 270px;">Product Code</th> -->
+                                <th style="width: 270px;">Product Name</th>
+                                <th style="width: 30px;"></th>
+                                <th style="width: 120px;">Godown</th>
+                               
+                                <th style="width: 40px;">Unit</th>
+                                <th style="width: 50px;">Qty</th>
+                                <th style="width: 100px;">Rate</th>
+                                <th style="width: 120px;">Amount</th>
+                                <th style="width: 80px;">Term</th>
+                                <th style="width: 130px;">Term Amount</th>
+                                <th style="width: 40px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let itemrow of addForm.controls.itemRows['controls']; let i=index" [formGroupName]="i" >
+                                <td style="text-align: center;"> {{i +1}}</td>
+                                <td  hidden><input type="text"     [id]="'p_Code + i'" formControlName="p_Code" class="form-control form-control-sm" style="width: 100%;min-width: 40px;"></td>   
+
+                                <td ><input type="text" [id]="'p_Desc + i'" formControlName="p_Desc" class="form-control form-control-sm" style="width: 100%;min-width: 270px;"
+                                    [ngbTypeahead]="AutocompleteForProduct" [resultFormatter]="formatter"(selectItem)="selectproduct($event,i)"  >                                    
+                                
+                                </td>
+                                <td >
+                                    <button class="btn btn-xs btn-primary" type="button" (click)="openProductModel(i)" 
+                                    style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
+                                    <span class="fa fa-search" aria-hidden="true"></span>
+                                </button> 
+                                </td>
+
+                                <!-- <td> <input type="text" hidden formControlName="p_Code"></td> -->            
+                                <td>
+                                    <select  class="form-control"  [id]="'gdn + i'" formGroupName="gdn" class="form-control form-control-sm" style="width: 100%;min-width: 120px;">
+                                        <option value="0">select one</option>
+                                        <option value="1">New Baneshwor</option>
+                                        <option value="2">Koteshwor</option>
+                                        </select>
+                                </td>
+                                <!-- <td><input type="text" formControlName="godown"  class="form-control form-control-sm" style="width: 100%;min-width: 120px;"></td> -->
+                                <td><input type="text"  [id]="'unit + i'" formControlName="unit" class="form-control form-control-sm" style="width: 100%;min-width: 40px;"></td>                       
+                                <td><input type="number" required [id]="'qty + i'"  formControlName="qty"(keyup)="changeqQty(i)"  class="form-control form-control-sm" style="width: 100%;min-width: 40px;"></td>
+                                <td><input type="number" [id]="'rate + i'" formControlName="rate"(keyup)="changeqRate(i)" class="form-control form-control-sm" style="width: 100%;min-width: 100px;"></td>
+                                <td><input type="number" [id]="'basic_Amt + i'" formControlName="basic_Amt" class="form-control form-control-sm" style="width: 100%;min-width: 120px;"></td>
+                                <td><input type="number" [id]="'term_Amt + i'" (blur)="changeProductWiseBill(i,itemrow)" formControlName="term_Amt" class="form-control form-control-sm" style="width: 100%;min-width: 80px;"></td>
+                                <td><input type="number" [id]="'net_Amt + i'" formControlName="net_Amt"(blur)="blurNetAmt(i)" class="form-control form-control-sm"style="width: 100%;min-width: 130px;"></td>
+                                <td> <button type="button"(click)="deleteRow(i)"  mat-icon-button color="warn"[id]="' i'">
+                                    <mat-icon style="margin-top: -15px;">delete</mat-icon>
+                                  </button></td>                                 
+                            </tr>
+                            
+                        </tbody>
+                    </table>                  
+                    <div class="col-sm-12"style="margin-top:-15px;margin-left:-15px">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <button (click)="onAddRow()"  class="btn btn-primary">Add New Item</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="text-center">
+                    <button type="submit" class="btn btn-sm btn-primary" style="margin:8px">{{TabAction}}</button>
+                    <button class="btn btn-sm btn-primary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>  
