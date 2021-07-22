@@ -56,14 +56,10 @@
                         <input id="typeahead-basic" type="text" formControlName="prGroupCode" class="form-control form-control-sm" 
                         [ngbTypeahead]="AutocompleteProGrp"[(ngModel)]="productGrpModel" [resultFormatter]="formatter"(selectItem)="selectproductGrp($event)"
                         [ngClass]="{ 'is-invalid': submitted && f.prGroupCode.errors }"placeholder="Type product group name">
-                       
-
                         <button class="btn btn-xs btn-primary" type="button" (click)="openPrGroupModel()"
                             style="height:27px;width:30px;padding:2px 0px 0px 0px;margin-top:2px">
                             <span class="fa fa-search" aria-hidden="true"></span>
-                        </button> 
-
-                       
+                        </button>  
                     </div>
 
                     <label class="col-sm-2 form-label">Product Sub Group</label>
